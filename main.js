@@ -7,6 +7,7 @@
 
 const tickets = document.getElementById("tickets"); // Create tickets variable
 const errors = document.getElementById("errors"); // Create errors variable
+const loading = document.getElementById("loading"); // Create loading variable
 
 async function fetchUnresolvedTickets() {
     try {
@@ -54,6 +55,8 @@ async function fetchUnresolvedTickets() {
     } catch (error) {
             errors.textContent = error.message;
             console.error('Error:', error.message);
+    } finally {
+        loading.style.display = "none"; 
     }
 }
 fetchUnresolvedTickets();
